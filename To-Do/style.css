@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0e0e11;
+    --surface: #17171c;
+    --surface2: #1f1f27;
+    --border: #2a2a35;
+    --accent: #c8f05a;
+    --accent-dim: rgba(200, 240, 90, 0.12);
+    --text: #f0f0f0;
+    --text-muted: #6b6b80;
+    --danger: #ff5e5e;
+    --danger-dim: rgba(255, 94, 94, 0.1);
+    --radius: 14px;
+}
+
+body {
+    align-items: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(200,240,90,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+#container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+}
+
+/* Input + Add button row */
+#inputRow {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+#taskInput {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 13px 18px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#taskInput::placeholder {
+    color: var(--text-muted);
+}
+
+#taskInput:focus {
+    border-color: var(--accent);
+}
+
+#addTaskBtn {
+    background: var(--accent);
+    color: #0e0e11;
+    border: none;
+    border-radius: var(--radius);
+    padding: 13px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s, transform 0.1s;
+}
+
+#addTaskBtn:hover { opacity: 0.88; }
+#addTaskBtn:active { transform: scale(0.97); }
+
+/* Task list */
+#taskList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#taskList li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.25s ease;
+    transition: border-color 0.2s;
+    font-size: 0.95rem;
+}
+
+#taskList li:hover {
+    border-color: #3a3a48;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Delete & Update buttons */
+#taskList li button {
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+#taskList li button:active {
+    transform: scale(0.95);
+}
+
+#taskList li button:first-of-type {
+    margin-left: auto;
+}
+
+/* Target Delete button */
+#taskList li button:nth-of-type(1) {
+    background: var(--danger-dim);
+    color: var(--danger);
+}
+
+#taskList li button:nth-of-type(1):hover {
+    background: rgba(255, 94, 94, 0.2);
+}
+
+/* Target Update button */
+#taskList li button:nth-of-type(2) {
+    background: var(--accent-dim);
+    color: var(--accent);
+    margin-left: 6px;
+}
+
+#taskList li button:nth-of-type(2):hover {
+    background: rgba(200, 240, 90, 0.2);
+}
+
+/* Inline edit input (dynamically added) */
+#taskList li input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 12px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 0;
+}
+
+#taskList li input:focus {
+    border-color: var(--accent);
+}
+
+/* Save button (3rd button inside li) */
+#taskList li button:nth-of-type(3) {
+    background: var(--accent);
+    color: #0e0e11;
+    margin-left: 6px;
+}
+
+#taskList li button:nth-of-type(3):hover {
+    opacity: 0.85;
+}
