@@ -50,8 +50,8 @@ Javascript-Practice-Projects/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/nikfury27/Javascript-Practice-Projects.git
-cd Javascript-Practice-Projects
+git clone https://github.com/nikfury27/FullStack-To-Do-application-using-Node.js-Express.Js-and-MongoDB
+cd FullStack-To-Do-application-using-Node.js-Express.Js-and-MongoDB
 ```
 
 ---
