@@ -20,6 +20,7 @@ addButton.addEventListener('click', () => {
             saveButton.textContent = 'Save';
             listItem.appendChild(update);
             listItem.appendChild(saveButton);
+            
             saveButton.addEventListener('click', () => {
                 if(update.value !== ''){
                     listItem.textContent = update.value;
@@ -27,6 +28,14 @@ addButton.addEventListener('click', () => {
                     listItem.appendChild(updateButton);
                 }
             })    
+            
+            update.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    saveButton.click();
+                }
+            });
+            
+            update.focus();
         })
 
         listItem.textContent = textInput.value;
@@ -34,5 +43,14 @@ addButton.addEventListener('click', () => {
         listItem.appendChild(updateButton);
         taskList.appendChild(listItem);
         textInput.value = '';
+    }
+    else{
+        alert("Please Enter Task")
+    }
+});
+
+textInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        addButton.click();
     }
 });
