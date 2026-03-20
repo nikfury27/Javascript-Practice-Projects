@@ -8,19 +8,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-// Todo Schema & Model
 const todoSchema = new mongoose.Schema({
     task: { type: String, required: true }
 });
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-// GET all todos
 app.get('/todos', async (req, res) => {
     try {
         const todos = await Todo.find();
@@ -30,7 +27,6 @@ app.get('/todos', async (req, res) => {
     }
 });
 
-// ADD todo
 app.post('/todos', async (req, res) => {
     try {
         const newTodo = new Todo({ task: req.body.task });
@@ -41,7 +37,6 @@ app.post('/todos', async (req, res) => {
     }
 });
 
-// UPDATE todo
 app.put('/todos/update', async (req, res) => {
     try {
         await Todo.findByIdAndUpdate(req.body.key, { task: req.body.task });
@@ -51,7 +46,6 @@ app.put('/todos/update', async (req, res) => {
     }
 });
 
-// DELETE todo
 app.delete('/todos/deleted', async (req, res) => {
     try {
         await Todo.findByIdAndDelete(req.body.key);
