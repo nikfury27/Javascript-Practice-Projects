@@ -16,8 +16,7 @@ Javascript-Practice-Projects/
 └── To-Do Backend/
     ├── server.js        # Express server with Mongoose CRUD routes
     ├── package.json     # Dependencies
-    ├── .env             # Environment variables (not pushed to GitHub)
-    └── .env.example     # Template for environment variables
+    └── .env     # Template for environment variables
 ```
 
 ---
