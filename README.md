@@ -139,10 +139,22 @@ Replaced the in-memory array with **MongoDB Atlas** via **Mongoose**:
 ## 📸 Features
 
 - ✅ Add new tasks
+
+<img width="1919" height="977" alt="Screenshot 2026-03-20 130334" src="https://github.com/user-attachments/assets/6f76ebd6-3386-412b-b1e9-6b08270ded08" />
+
+  
 - ✅ View all tasks (loaded from database on startup)
+
+<img width="1919" height="976" alt="Screenshot 2026-03-20 130516" src="https://github.com/user-attachments/assets/8931aba9-5d58-401a-8cf5-4f304e82ed05" />
+
+  
 - ✅ Update existing tasks inline
 - ✅ Delete tasks
 - ✅ Persistent storage via MongoDB Atlas
+
+<img width="1480" height="711" alt="Screenshot 2026-03-20 130402" src="https://github.com/user-attachments/assets/c8b16816-f05d-41a8-a1c2-1a229219de15" />
+
+  
 - ✅ Press **Enter** to add or save tasks
 
 ---
