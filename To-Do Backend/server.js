@@ -18,7 +18,7 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-app.get('/todos', async (req, res) => {
+app.get('/todos/fetch', async (req, res) => {
     try {
         const todos = await Todo.find();
         res.json(todos.map(t => ({ id: t._id, task: t.task })));
@@ -27,7 +27,7 @@ app.get('/todos', async (req, res) => {
     }
 });
 
-app.post('/todos', async (req, res) => {
+app.post('/todos/new', async (req, res) => {
     try {
         const newTodo = new Todo({ task: req.body.task });
         await newTodo.save();

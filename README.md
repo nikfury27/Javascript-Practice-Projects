@@ -95,12 +95,12 @@ Open `To-Do Frontend/index.html` directly in your browser — no build step requ
 
 ## 📡 API Endpoints
 
-| Method | Endpoint         | Description            | Body                         |
-|--------|-----------------|------------------------|------------------------------|
-| GET    | `/todos`         | Fetch all todos        | —                            |
-| POST   | `/todos`         | Add a new todo         | `{ "task": "your task" }`    |
+| Method | Endpoint         | Description            | Body                                    |
+|--------|------------------|------------------------|-----------------------------------------|
+| GET    | `/todos/fetch`   | Fetch all todos        | —                                       |
+| POST   | `/todos/new`     | Add a new todo         | `{ "task": "your task" }`               |
 | PUT    | `/todos/update`  | Update an existing todo| `{ "key": "<id>", "task": "new task" }` |
-| DELETE | `/todos/deleted` | Delete a todo          | `{ "key": "<id>" }`          |
+| DELETE | `/todos/deleted` | Delete a todo          | `{ "key": "<id>" }`                     |
 
 ---
 

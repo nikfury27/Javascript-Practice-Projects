@@ -5,7 +5,7 @@ const taskList = document.getElementById('taskList');
 const BASE_URL = "http://localhost:5000";
 
 async function loadTodos() {
-    const res = await fetch(`${BASE_URL}/todos`);
+    const res = await fetch(`${BASE_URL}/todos/fetch`);
     const todos = await res.json();
 
     taskList.innerHTML = '';
@@ -92,7 +92,7 @@ function createTaskElement(todo) {
 async function addTask() {
     if (textInput.value.trim() !== '') {
 
-        const res = await fetch(`${BASE_URL}/todos`, {
+        const res = await fetch(`${BASE_URL}/todos/new`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
